@@ -1033,7 +1033,7 @@ var x = parseFloat(document.getElementById("x").value);
 var y = parseFloat(document.getElementById("y").value);
 var delta = parseFloat(document.getElementById("delta").value);
 
-var A = items[Math.round(10*y)][x-12];
+var A = items[Math.round(10*y)][Math.round(x-12)];
 var exp1 = (-0.00002859*A + 0.003615)*((x+delta)/12);
 var exp2 = (0.005204*A - 0.9224)*((x+delta)/12);
 var exp3 = (-0.00002859*A + 0.003615)*(x/12);
