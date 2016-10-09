@@ -20,7 +20,11 @@ Time interval (in months): <input type="number" id="delta">
 <button onclick="findGMFM()">Calculate</button>
 <h2> The ENE for that time interval is: </h2> <h2 id="value"></h2>
 
-<p> To calculate the GMFMER, please divide the measured GMFM-66 score change by the ENE (GMFMER = measured GMFM-66 score/ENE) </p>
+<br>
+<p> To calculate the GMFMER, please enter the measured GMFM-66 score change: <input type="number" id="GMFM" >
+<button onclick="findGMFMER()">Calculate</button>
+<h2> The GMFMER (GMFM score/ENE) for that time interval is: </h2> <h2 id="GMFMER"></h2>
+  
 Ref: <a href="http://www.archives-pmr.org/article/S0003-9993(15)01065-5/abstract">Gross Motor Function Measure Evolution Ratio: Use as a Control for Natural Progression in Cerebral Palsy</a>
 
 <script>
@@ -1040,6 +1044,14 @@ var exp3 = (-0.00002859*A + 0.003615)*(x/12);
 var exp4 = (0.005204*A - 0.9224)*(x/12);
 
 document.getElementById("value").innerHTML = (A*(Math.pow(2.71828,exp1)-Math.pow(2.71828,exp2)-Math.pow(2.71828,exp3)+Math.pow(2.71828,exp4))).toFixed(2);
+}
+  
+function findGMFMER() {
+
+  var GMFM = parseFloat(document.getElementById("GMFM").value);
+  var ENE = parseFloat(document.getElementById("value").innerHTML);
+
+  document.getElementById("GMFMER").innerHTML = (GMFM/ENE).toFixed(2);
 }
 
 </script>
